@@ -1,0 +1,2 @@
+epoch	reward_evader	n_collisions_evaders_with_obstacles	n_collisions_evaders_with_pursuers	n_collisions_evaders_with_evaders	reward_pursuer	n_collisions_pursuers_with_obstacles	n_collisions_pursuers_with_pursuers	n_collisions_pursuers_with_evaders	capture_rate	episode_length	epoch_time_s
+0	-24.06210047958289	0.0	29.0	2.0	39.3624999999999	0.0	0.0	29.0	0.9666666666666667	500.0	1009.3185119628906
