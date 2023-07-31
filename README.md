@@ -1,7 +1,9 @@
 
 Official code for the paper 
 "MatrixWorld: A pursuit-evasion platform for safe multi-agent coordination and autocurricula", 
-which has been submitted to Arxiv and journal for peer-review.
+which has been submitted to [Arxiv](https://arxiv.org/abs/2307.14854) and journal for peer-review.
+
+**More documents will be updated soon.**
 
 
 ### Description
@@ -25,7 +27,7 @@ It can be used for the research of
 - safe multi-agent coordination,
 - co-evolution, autocurricula, self-play, arm races, or adversarial learning.
 
-### Comparison between normal reinforcement learning and adversarial learning
+### Comparison between normal reinforcement learning (left) and adversarial learning (right)
 
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_random_vs_adversarial.gif)
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_adversarial_vs_adversarial.gif)

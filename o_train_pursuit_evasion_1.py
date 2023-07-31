@@ -1,11 +1,11 @@
 """
-Co-evolution evaluation mechanism 1:
+Co-evolution evaluation mechanism 1: pursuer specialist vs. evader specialist.
     Compete with current opponents.
 
-Co-evolution evaluation mechanism 2:
+Co-evolution evaluation mechanism 2: pursuer generalist vs. evader specialist.
     Unfair, pursuers compete with all previous evaders, evaders compete with current pursuers.
 
-Co-evolution evaluation mechanism 3:
+Co-evolution evaluation mechanism 3: pursuer generalist vs. evader generalist.
     Compete with all previous opponents.
 """
 import os

@@ -67,11 +67,11 @@ def parse_args():
 
     parser.add_argument("--render", type=bool, default=True)
 
-    parser.add_argument("--render_display", type=bool, default=False)
+    parser.add_argument("--render_display", type=bool, default=True)
 
     parser.add_argument("--render_save", type=bool, default=True)
 
-    parser.add_argument("--save_trajectory", type=bool, default=True)
+    parser.add_argument("--save_trajectory", type=bool, default=False)
 
     parser.add_argument("--n_epochs", type=int, default=1, help="Statistical test mode: 10. Render mode: 1.")
 
