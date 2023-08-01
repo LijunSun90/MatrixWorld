@@ -3,7 +3,8 @@ Official code for the paper
 "MatrixWorld: A pursuit-evasion platform for safe multi-agent coordination and autocurricula", 
 which has been submitted to [Arxiv](https://arxiv.org/abs/2307.14854) and journal for peer-review.
 
-**More documents will be updated soon.**
+
+**More documents will be updated continuously.**
 
 
 ### Description
@@ -33,4 +34,14 @@ It can be used for the research of
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_adversarial_vs_adversarial.gif)
 
 
+### Paper citation
+
+Cite the following paper if you use this environment, code, or found it useful.
+
+    @article{sun2023matrixworld,
+      title={MatrixWorld: A pursuit-evasion platform for safe multi-agent coordination and autocurricula},
+      author={Sun, Lijun and Chang, Yu-Cheng and Lyu, Chao and Lin, Chin-Teng and Shi, Yuhui},
+      journal={arXiv preprint arXiv:2307.14854},
+      year={2023}
+    }
 
