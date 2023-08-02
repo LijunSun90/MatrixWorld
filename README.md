@@ -29,6 +29,17 @@ It can be used for the research of
 - co-evolution, autocurricula, self-play, arm races, or adversarial learning.
 
 
+## Task definition
+
+- Nine pursuit-evasion variants are defined for example **scenarios** like 
+  **(1)** real-world drone and vehicle swarm, 
+  **(2)** multi-agent path finding (MAPF), 
+  **(3)** popular pursuit-evasion setups, and 
+  **(4)** classic cops-androbbers problem.
+- **More** pursuit-evasion variants (other tasks) **can be designed** based on different practical meanings of safety.
+
+![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/task_definition.png)
+
 
 ## Safety-constrained multi-agent action execution model
 
