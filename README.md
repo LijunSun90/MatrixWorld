@@ -65,7 +65,7 @@ Figure: **(left)** evasive behavior trained by normal reinforcement learning;
 
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_random_vs_adversarial.gif)
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_adversarial_vs_adversarial.gif)
-![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/capture_rate_generalist_vs_generalist.png)
+![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/capture_rate_generalist_vs_generalist.png)
 
 
 ## Paper citation
