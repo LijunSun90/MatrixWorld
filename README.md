@@ -51,15 +51,24 @@ based on the safety definitions in real-world applications and literature conven
 
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/collision_resolution_mechanism.png)
 
-### Comparison between normal reinforcement learning (left) and adversarial learning (right)
+## Lightweight co-evolution platform
 
+- MatrixWorld is a lightweight co-evolution platform to test autocurricula research ideas.
+- Our experiments achieve the autocurricula between pursuers and evaders by adversarial learning. 
+- Our experiments show that 
+  the passive (evasive) policy learning benefits more from co-evolution 
+  than active (pursuing) policy learning in an asymmetric adversarial game.
 
+Figure: **(left)** evasive behavior trained by normal reinforcement learning;
+**(middle)** evasive behavior trained by adversarial learning;
+**(right)** arms race in the learning process of pursuers and evaders.
 
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_random_vs_adversarial.gif)
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_adversarial_vs_adversarial.gif)
+![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/capture_rate_generalist_vs_generalist.png)
 
 
-### Paper citation
+## Paper citation
 
 Cite the following paper if you use this environment, code, or found it useful.
 
