@@ -7,7 +7,7 @@ which has been submitted to [Arxiv](https://arxiv.org/abs/2307.14854) and journa
 **More documents will be updated continuously.**
 
 
-### Description
+## Description
 
 MatrixWorld is 
 - a safety constrained pursuit-evasion platform for safe multi-agent coordination,
@@ -29,13 +29,21 @@ It can be used for the research of
 - co-evolution, autocurricula, self-play, arm races, or adversarial learning.
 
 
-### Multi-agent-environment interaction model
+
+## Safety-constrained multi-agent action execution model
+
+The proposed safety-constrained multi-agent action execution model is **general for the software implementation of safe multi-agent environments**.
+
+It consists **two parts: (1)** multi-agent-environment interaction model; 
+**(2)** safety-constrained collision resolution mechanism for the simultaneous action execution of multiple agents.
+
+### (1) Multi-agent-environment interaction model
 
 Multi-agent-environment interaction model in adversarial multi-agent settings, e.g., pursuit-evasion games.
 
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/multiagent_environment_interaction_models.png)
 
-### Safety-constrained Collision resolution mechanism
+### (2) Safety-constrained collision resolution mechanism
 
 The **collision resolution mechanism is defined for the simultaneous action execution of agents**, 
 which consists of 3 collisions types and 3 collision outcomes for each type,
