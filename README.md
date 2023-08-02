@@ -28,6 +28,17 @@ It can be used for the research of
 - safe multi-agent coordination,
 - co-evolution, autocurricula, self-play, arm races, or adversarial learning.
 
+
+### Collision resolution mechanism for safe MARL and multi-agent coordination
+
+The safety is defined in terms of the collision avoidance in adversarial environments.
+
+The **collision resolution mechanism is defined for the simultaneous action execution of agents**, 
+which consists of 3 collisions types and 3 collision outcomes for each type,
+based on the safety definitions in real-world applications and literature conventions.
+
+![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/collision_resolution_mechanism.png)
+
 ### Comparison between normal reinforcement learning (left) and adversarial learning (right)
 
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/data/o_compare/video_evasion_trained_by_random_vs_adversarial.gif)
