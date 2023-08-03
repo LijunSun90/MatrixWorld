@@ -41,6 +41,18 @@ It can be used for the research of
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/task_definition.png)
 
 
+### Environmental parameters
+
+- **Origin** of the grid world: Top left corner.
+- **Size** of the grid world: Tunable. Default value: 20 x 20.
+- **Swarm size** of agents (pursuers and evaders): Tunable. Default value: n_evaders=3, n_pursuers=12.
+- **Observation:** Tunable. Binary **matrix** of size **fov_scope x fov_scope x 3**, 
+  which is a square centered at the agent with 3 channels: local_evader, local_pursuers, local_obstacles.
+  Default value is: 11 x 11 x 3.
+- **Action**: Vector of size **5**, where 0 ~ 4 represent keeping still, moving north, moving east, moving south, and moving west.
+
+**Remark:** The codes provide utility functions for matrix-based and vector-based global and local observations.
+
 ## Safety-constrained multi-agent action execution model
 
 The proposed safety-constrained multi-agent action execution model is **general for the software implementation of safe multi-agent environments**.
@@ -59,6 +71,10 @@ Multi-agent-environment interaction model in adversarial multi-agent settings, e
 The **collision resolution mechanism is defined for the simultaneous action execution of agents**, 
 which consists of 3 collisions types and 3 collision outcomes for each type,
 based on the safety definitions in real-world applications and literature conventions.
+
+**Remark:** 
+The collision resolution mechanism also determines which agent should be responsible, 
+which is useful for the correct learning of algorithms.
 
 ![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/collision_resolution_mechanism.png)
 
