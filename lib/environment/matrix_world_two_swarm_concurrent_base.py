@@ -173,6 +173,13 @@ class MatrixWorldTwoSwarmConcurrentBase(MatrixWorldBase):
         raise NotImplementedError
 
     ##################################################
+    # Workflow in implementing a collision mechanism:
+    # 1. Detect two types of conflicts:
+    #    (1) vertex conflict, (2) edge conflict (not applicable to agent-obstacle collision).
+    # 2. Resolve conflict based on the safety definition.
+    # 3. Record conflict, i.e., whose fault it is.
+
+    ##################################################
     # 1. Collision mechanism: agent-obstacle.
 
     def collision_mechanism_agent_obstacle_reach(self, actions, is_evader=False):
@@ -283,19 +290,30 @@ class MatrixWorldTwoSwarmConcurrentBase(MatrixWorldBase):
 
         index_bounce_back_or_not = [False] * n_agents
 
-        for idx, (from_position, desired_position) in enumerate(zip(from_positions.tolist(), desired_positions)):
+        for idx_1, (from_position_1, desired_position_1) in enumerate(zip(from_positions.tolist(), desired_positions)):
 
-            if desired_positions.count(desired_position) > 1:
+            for idx_2, (from_position_2, desired_position_2) in enumerate(zip(from_positions.tolist(),
+                                                                              desired_positions)):
 
-                index_bounce_back_or_not[idx] = True
+                if idx_1 == idx_2:
+                    continue
 
-                if is_evader:
+                switch_based_collision = (desired_position_1 == from_position_2) and \
+                                         (from_position_1 == desired_position_2)
 
-                    self.evader_collision_status_with_evaders[idx] = True
+                occupy_based_collision = (desired_position_1 == desired_position_2)
 
-                else:
+                if switch_based_collision or occupy_based_collision:
 
-                    self.pursuer_collision_status_with_pursuers[idx] = True
+                    index_bounce_back_or_not[idx_1] = True
+
+                    if is_evader:
+
+                        self.evader_collision_status_with_evaders[idx_1] = True
+
+                    else:
+
+                        self.pursuer_collision_status_with_pursuers[idx_1] = True
 
         desired_positions = np.array(desired_positions)
         desired_positions[index_bounce_back_or_not] = from_positions[index_bounce_back_or_not]
@@ -343,7 +361,9 @@ class MatrixWorldTwoSwarmConcurrentBase(MatrixWorldBase):
                 - pursuer: reach and alive. higher priority.
         """
 
-        # If evader keeps still, the pursuer will fail to reach that position and bounce back.
+        # (1) If evader keeps still, the pursuer will fail to reach that position and bounce back,
+        # since no vertex conflict is allowed in this case,
+        # and it is the fault of the pursuer.
 
         still_evader_idx = []
 
@@ -366,10 +386,54 @@ class MatrixWorldTwoSwarmConcurrentBase(MatrixWorldBase):
 
         desired_positions_pursuer = np.array(desired_positions_pursuer)
 
-        # Otherwise, it is the fault of the evader.
+        # (2) If there is an edge conflict between an evader and a pursuer, both will bounce back
+        # since no vertex and edge conflicts are allowed in this case,
+        # and it is the fault of both.
+
+        index_bounce_back_or_not_evader = [False] * self.n_evaders
+        index_bounce_back_or_not_pursuer = [False] * self.n_pursuers
 
         for idx_evader, (from_position_evader, desired_position_evader) in \
                 enumerate(zip(from_positions_evader.tolist(), desired_positions_evader)):
+
+            #  Only consider moving evader here.
+
+            if from_position_evader in still_evader_idx:
+                continue
+
+            for idx_pursuer, (from_position_pursuer, desired_position_pursuer) in \
+                    enumerate(zip(from_positions_pursuer.tolist(), desired_positions_pursuer)):
+
+                switch_based_collision = (desired_position_evader == from_position_pursuer) and \
+                                         (from_position_evader == desired_position_pursuer)
+
+                if switch_based_collision:
+
+                    index_bounce_back_or_not_evader[idx_evader] = True
+                    index_bounce_back_or_not_pursuer[idx_pursuer] = True
+
+                    self.evader_collision_status_with_pursuers[idx_evader] = True
+                    self.pursuer_collision_status_with_evaders[idx_pursuer] = True
+
+        desired_positions_evader = np.array(desired_positions_evader)
+        desired_positions_evader[index_bounce_back_or_not_evader] = from_positions_evader[index_bounce_back_or_not_evader]
+        desired_positions_evader = desired_positions_evader.tolist()
+
+        desired_positions_pursuer = np.array(desired_positions_pursuer)
+        desired_positions_pursuer[index_bounce_back_or_not_evader] = from_positions_pursuer[index_bounce_back_or_not_pursuer]
+        desired_positions_pursuer = desired_positions_pursuer.tolist()
+
+        # (3) Otherwise, if there is only a vertex conflict between a moving evader and a moving pursuer,
+        # the evader will bounce back due to lower priority and pursuer will reach due to higher priority,
+        # and it is the fault of the evader.
+
+        for idx_evader, (from_position_evader, desired_position_evader) in \
+                enumerate(zip(from_positions_evader.tolist(), desired_positions_evader)):
+
+            #  Only consider moving evader here.
+
+            if from_position_evader in still_evader_idx:
+                continue
 
             if desired_position_evader in desired_positions_pursuer.tolist():
 

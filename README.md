@@ -1,7 +1,7 @@
 
 Official code for the paper 
 "MatrixWorld: A pursuit-evasion platform for safe multi-agent coordination and autocurricula", 
-which has been submitted to [Arxiv](https://arxiv.org/abs/2307.14854) and journal for peer-review.
+which is preprinted in [Arxiv](https://arxiv.org/abs/2307.14854) and under review.
 
 
 **More documents will be updated continuously.**
@@ -76,7 +76,8 @@ based on the safety definitions in real-world applications and literature conven
 The collision resolution mechanism also determines which agent should be responsible, 
 which is useful for the correct learning of algorithms.
 
-![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/collision_resolution_mechanism.png)
+![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/conflict_type.png)
+![Alt Text](https://github.com/LijunSun90/MatrixWorld/blob/main/docs/figures/collision_mechanism.png)
 
 ## Lightweight co-evolution platform
 
