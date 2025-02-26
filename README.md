@@ -1,4 +1,6 @@
 
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=LijunSun90.MatrixWorld)
+
 Official code for the paper 
 "MatrixWorld: A pursuit-evasion platform for safe multi-agent coordination and autocurricula", 
 which is preprinted in [Arxiv](https://arxiv.org/abs/2307.14854) and under review.
